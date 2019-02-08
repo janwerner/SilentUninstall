@@ -5,18 +5,19 @@ NAME: SilentUninstall.ps1
 
 SYNOPSIS: Uninstall one or more programs given a search query
 
-COPYRIGHT: (c) 2014 Dave Baker, teegar (AT) gmail
+COPYRIGHT: (c) 2014 Dave Baker, teegar (AT) gmail,  2019 Jan Werner, mail (AT) janwerner (DOT) de
 
 LICENSE: You may freely use and modify this script as you like to suit your own needs.
 You may not distribute the script unless given explicit permission by the author.  
 
 ## SYNTAX ##
 
-     SilentUninstall.ps1 <search> [-u] [-nosim] [-verbose]
+     SilentUninstall.ps1 <search> [-u] [-nosim] [-verbose] [-switches "<switch1> <switch2>"]
 
 Search terms with multiple words should be enclosed in quotes -- examples:
      SilentUninstall.ps1 cisco
      SilentUninstall.ps1 "cisco anyconnect"   
+     SilentUninstall.ps1 "cisco anyconnect" -switches "/S"
 
 Searches are for EXACT terms, so a search for "Microsoft Office" would return 
 "Microsoft Office 2013" and "Update for Microsoft Office", but NOT "Microsoft
@@ -36,6 +37,8 @@ an uninstall, add the -nosim flag. **WARNING: Use with caution -- there is NO co
                                         "cisco" in the name, one at a time.
 
 The -nosim flag exists to reduce the possibility of an accidental uninstallation.  
+
+The -switches flag adds a custom switch to use for EXE uninstallers in case another switch could not be identified.
 
 The -verbose option turns on some (extremely) rudimentary error reporting.  
 
