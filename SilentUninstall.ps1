@@ -61,7 +61,7 @@
 # such as Kaseya or N-Able, to automate uninstalls without interrupting or
 # requiring input from the end user.  
 #
-#
+# JW: Add parameter "-switches" to add custom switches for EXE uninstallers
 #
 #>
 
@@ -69,7 +69,8 @@ Param(
     [string]$program = "",
 	[switch]$uninstall,
 	[switch]$nosimulate,
-    [switch]$verbose
+    [switch]$verbose,
+    [string]$switches
 )   
 
 Function performUninstall($regPath) {
@@ -151,9 +152,9 @@ Function performUninstall($regPath) {
 							else {  
 								
 								write-host "$uninsExe"
-								write-host "$script_action start-process -path `"$uninsExe`""
+								write-host "$script_action start-process -path `"$uninsExe`" -arg `"$switches`""
 								if ($nosimulate) {
-									start-process "$uninsExe" -wait
+									start-process "$uninsExe" -arg $switches -wait
 								}
 								
 							}
