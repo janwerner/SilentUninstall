@@ -12,12 +12,12 @@ You may not distribute the script unless given explicit permission by the author
 
 ## SYNTAX ##
 
-     SilentUninstall.ps1 <search> [-u] [-nosim] [-verbose] [-switches "<switch1> <switch2>"]
+     SilentUninstall.ps1 <search> [-uninstall] [-nosimulate] [-verbose] [-switches "<switch1> <switch2>"]
 
 Search terms with multiple words should be enclosed in quotes -- examples:
      SilentUninstall.ps1 cisco
      SilentUninstall.ps1 "cisco anyconnect"   
-     SilentUninstall.ps1 "cisco anyconnect" -switches "/S"
+     SilentUninstall.ps1 "7-zip" -switches "/S"
 
 Searches are for EXACT terms, so a search for "Microsoft Office" would return 
 "Microsoft Office 2013" and "Update for Microsoft Office", but NOT "Microsoft
